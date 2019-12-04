@@ -61,11 +61,56 @@
         </div>
 
     </div>
+<<<<<<< HEAD
+    <script type="text/javascript">
+        // Question: What does this code do?
+        $("#submit-res").on("click", function(event) {
+          event.preventDefault();
+          var newCustomer = {
+            customerName: $("#customerName").val().trim(),
+            phoneNumber: $("#phoneNumber").val().trim(),
+            customerEmail: $("#customerEmail").val().trim(),
+            customerID: $("#customerID").val().trim()
+          };
+    
+            // Create New Customers - takes in JSON input
+app.post("/api/customer", function(req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body parsing middleware
+    var inputCustomer = req.body;
+    var newCustomer = new Customer(
+        inputCustomer.customerName, 
+        inputCustomer.phoneNumber,
+        inputCustomer.customerEmail,
+        inputCustomer.customerID)
+    
+
+    console.log(newCustomer.getCustomerName());
+  
+        if (customerList.length < tableLimit) {
+            customerList.push(newCustomer)
+        } else {
+            waitingList.push(newCustomer)
+        }
+
+  
+    // res.json(inputCustomer);
+  });
+
+        });
+      </script>
+    
+
+=======
     <footer class="footer">
         <div class="container">
             <p><a href="/api/tables">API Table Link</a> | <a href="/api/waitlist">API Wait List</a> </p>
         </div>
     </footer>
+>>>>>>> d6fc62ec7837a648d6dc33f1f69ced06f07c5e26
 </body>
 
+
+
 </html>
+

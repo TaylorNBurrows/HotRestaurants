@@ -94,31 +94,8 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/public/reservation.html"));
   });
 
-  // Create New Customers - takes in JSON input
-app.post("/api/customer", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
-    var inputCustomer = req.body;
-    var newCustomer = new Customer(
-        inputCustomer.customerName, 
-        inputCustomer.phoneNumber,
-        inputCustomer.customerEmail,
-        inputCustomer.customerID)
-    
-
-    console.log(inputCustomer);
   
-        if (customerList.length < tableLimit) {
-            customerList.push(newCustomer)
-        } else {
-            waitingList.push(newCustomer)
-        }
 
-
-    characters.push(inputCustomer);
-  
-    res.json(inputCustomer);
-  });
 
   // Starts the server to begin listening
 // =============================================================
