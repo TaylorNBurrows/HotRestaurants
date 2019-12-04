@@ -74,24 +74,24 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
   
-  app.get("/reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
+  app.get("/public/reservation", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/reservation.html"));
   });
   
-  app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+  app.get("/public/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/tables.html"));
   });
 
 
 //   This method will push the waiting list into the waiting array
   app.get("api/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "waiting.html"));
+    res.sendFile(path.join(__dirname, "/public/tables.html"));
   });
 
   //   This method will push the waiting list into the reservation array
 
   app.get("api/reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
+    res.sendFile(path.join(__dirname, "/public/reservation.html"));
   });
 
   // Create New Customers - takes in JSON input
@@ -119,6 +119,13 @@ app.post("/api/customer", function(req, res) {
   
     res.json(inputCustomer);
   });
+
+  // Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
+  
 
 
 
