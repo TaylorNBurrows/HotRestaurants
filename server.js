@@ -74,51 +74,35 @@ app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "index.html"));
   });
   
-  app.get("/reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
+  app.get("/public/reservation", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/reservation.html"));
   });
   
-  app.get("/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "tables.html"));
+  app.get("/public/tables", function(req, res) {
+    res.sendFile(path.join(__dirname, "/public/tables.html"));
   });
 
 
 //   This method will push the waiting list into the waiting array
   app.get("api/tables", function(req, res) {
-    res.sendFile(path.join(__dirname, "waiting.html"));
+    res.sendFile(path.join(__dirname, "/public/tables.html"));
   });
 
   //   This method will push the waiting list into the reservation array
 
   app.get("api/reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
+    res.sendFile(path.join(__dirname, "/public/reservation.html"));
   });
 
-  // Create New Customers - takes in JSON input
-app.post("/api/customer", function(req, res) {
-    // req.body hosts is equal to the JSON post sent from the user
-    // This works because of our body parsing middleware
-    var inputCustomer = req.body;
-    var newCustomer = new Customer(
-        inputCustomer.customerName, 
-        inputCustomer.phoneNumber,
-        inputCustomer.customerEmail,
-        inputCustomer.customerID)
-    
-
-    console.log(inputCustomer);
   
-        if (customerList.length < tableLimit) {
-            customerList.push(newCustomer)
-        } else {
-            waitingList.push(newCustomer)
-        }
 
 
-    characters.push(inputCustomer);
-  
-    res.json(inputCustomer);
+  // Starts the server to begin listening
+// =============================================================
+app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
   });
+  
 
 
 
